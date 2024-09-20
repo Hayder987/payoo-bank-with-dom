@@ -1,6 +1,6 @@
 
 document.getElementById("logOut-btn").addEventListener("click", function(){
-    window.location.href = "./login.html";
+    window.location.href = "./index.html";
  });
 
 document.getElementById("add-money").addEventListener("click", function(){
