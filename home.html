@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" data-theme = "light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payoo-Bank</title>
+    <!-- daisy ui + Tailwind css CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- google-Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .font-poppins{
+          font-family: "Poppins", sans-serif;
+        }
+    </style> 
+
+</head>
+<body class="max-w-[600px] px-6 mx-auto">
+
+  <header class="flex justify-between items-center mb-16 mt-6" id="">
+    <div class="flex gap-6 justify-center items-center">
+      <div class="" id="">
+        <img class="w-[100px] h-[100px]" src="./images/balance-2.webp" alt="">
+      </div>
+      <div class="">
+        <h1 class="text-3xl font-bold">$ <span id="main-balance" class="text-blue-600">1236</span></h1>
+        <p class="text-base text-gray-400">Current Balance</p>
+      </div>
+    </div>
+   <button id="logOut-btn" class="border-2 border-blue-400 p-2 text-xl rounded-xl"><i class="fa-solid fa-arrow-right-from-bracket"></i> <span>Log-Out</span></button>
+  </header>
+
+   <main class="" id="">
+    <div class=" flex flex-col justify-center items-center " id="">
+        <!------- button div --------------->
+      <div class="mb-12 grid grid-cols-3 gap-4" id="">
+        <button id="add-money" class="border-2 text-base font-bold border-gray-400 p-3 rounded-xl flex flex-col justify-center items-center"> <span class=""><img class="w-14 h-14" src="./images/addmoney.jpg" alt=""></span> Add Money</button>
+        <button id="cashOut" class="border-2 text-base font-bold border-gray-400 p-3 rounded-xl flex flex-col justify-center items-center"> <span class=""><img class="w-14 h-14" src="./images/cashout.png " alt=""></span> Cashout</button>
+        <button id="transfer" class="border-2 text-base font-bold border-gray-400 p-3 rounded-xl flex flex-col justify-center items-center"> <span class=""><img class="w-14 h-14" src="./images/transfer-money.jpg" alt=""></span> Transfer Money</button>
+        <!-- <button class="border-2 text-base font-bold border-gray-400 p-3 rounded-xl flex flex-col justify-center items-center"> <span class=""><img class="w-14 h-14" src="./images/bonus.jpg" alt=""></span> Get Bonus</button>
+        <button class="border-2 text-base font-bold border-gray-400 p-3 rounded-xl flex flex-col justify-center items-center"> <span class=""><img class="w-14 h-14" src="./images/paybill.png" alt=""></span> Pay Bill</button> -->
+        <button id = "transaction" class="border-2 text-base font-bold border-gray-400 p-3 rounded-xl flex flex-col justify-center items-center"> <span class=""><img class="w-14 h-14" src="./images/transjection.jpg" alt=""></span> Transactions</button>
+        
+      </div>
+      <!------- addMoney Div ------------------------->
+      <div id="addMoneyDiv" class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl hidden">
+        <h1 class="text-center pt-4 text-xl font-bold">Add Money</h1>
+        <form class="card-body">
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Amount</span>
+            </label>
+            <input type="text" id="addmoney-input-amount" placeholder="Enter Amount" class="input input-bordered" required autocomplete="off"/>
+          </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Pin</span>
+            </label>
+            <input type="password" id="addmoney-pin-input" placeholder="Pin Number" class="input input-bordered" required autocomplete="off"/>
+            <label class="label">
+              <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
+            </label>
+          </div>
+          <div class="form-control mt-6">
+            <button id="addmoney-btn" class="btn btn-primary">Add</button>
+          </div>
+        </form>
+      </div>
+      <!------- addMoney Div end ------------------------->
+
+    <!------- CashOut Div start ------------------------->
+    <div id="cashOutDiv" class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl hidden">
+        <h1 class="text-center pt-4 text-xl font-bold">CashOut</h1>
+        <form class="card-body">
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Amount</span>
+            </label>
+            <input type="text" id="cashout-input-amount" placeholder="Enter Amount" class="input input-bordered" required autocomplete="off"/>
+          </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Pin</span>
+            </label>
+            <input type="password" id="cashout-pin-input" placeholder="Pin Number" class="input input-bordered" required autocomplete="off"/>
+            <label class="label">
+              <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
+            </label>
+          </div>
+          <div class="form-control mt-6">
+            <button id="cashout-btn" class="btn btn-primary">Cashout</button>
+          </div>
+        </form>
+      </div>
+    <!------- cashOut Div end ------------------------->
+
+    <!------- transfer Div start ------------------------->
+    <div id="transferDiv" class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl hidden">
+        <h1 class="text-center pt-4 text-xl font-bold">Transfer Money</h1>
+        <form class="card-body">
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Amount</span>
+            </label>
+            <input type="text" id="transfer-input-amount" placeholder="Enter Amount" class="input input-bordered" required autocomplete="off"/>
+            <label class="label">
+                <span class="label-text">Acount No:</span>
+              </label>
+              <input type="text" id="transfer-acount-input" placeholder="Enter Acount No" class="input input-bordered" required autocomplete="off"/>
+          </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Pin</span>
+            </label>
+            <input type="password" id="transfer-pin-input" placeholder="Pin Number" class="input input-bordered" required autocomplete="off"/>
+            <label class="label">
+              <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
+            </label>
+          </div>
+          <div class="form-control mt-6">
+            <button id="transferBtn" class="btn btn-primary">Transfer Now</button>
+          </div>
+        </form>
+      </div>
+    <!------- transfer Div end ------------------------->
+
+    <!------- transaction Div start ------------------------->
+    <div id="transactionDiv" class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl ">
+      <h1 class="text-center pt-4 text-xl font-bold">Transactions History</h1>
+      <div class="flex flex-col gap-4 p-2" id="container-div">
+
+      </div>
+    </div>
+  <!------- transaction Div end ------------------------->
+    
+
+    </div>
+   </main>
+
+
+  <script src="./js/utility.js"></script>
+  <script src="./js/button-response.js"></script>
+  <script src="./js/home.js"></script>
+</body>
+</html>
